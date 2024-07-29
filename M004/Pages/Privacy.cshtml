@@ -1,0 +1,19 @@
+﻿@*@inject: DI im Frontend, muss einen Namen bekommen*@
+
+@page "/Privacy"
+@inject ILogger<Pages_Privacy> _logger
+@{
+	ViewData["Title"] = "Privacy Policy";
+	_logger.Log(LogLevel.Debug, "Privacy geladen");
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+@*@functions: C# Code, welcher normalerweise im Model wäre, im Frontend ablegen*@
+@functions{
+	void OnGet()
+	{
+
+	}
+}

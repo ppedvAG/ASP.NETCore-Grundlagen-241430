@@ -1,0 +1,24 @@
+﻿@*
+	@page: Gibt die Route dieser Page an
+	Hat generell eine Route dahinter (z.B. "/Index")
+
+	@model bezieht sich hier auf die dahinter liegende Klasse (Index.cshtml.cs)
+
+	ViewData: Globales Dictionary, welches beliebige Daten enthalten kann
+*@
+
+@page "/{id?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<p>Zahl aus dem Backend: @Model.Zahl</p>
+	@if (Model.ID != null)
+	{
+		<p>@Model.ID</p>
+	}
+</div>

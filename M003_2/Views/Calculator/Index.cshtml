@@ -1,0 +1,20 @@
+﻿@model CalculatorModel
+
+<form asp-action="Berechne">
+	Rechenart:
+	<select asp-route="rechenart" name="rechenart">
+		<option value="@Operation.Add">Addition</option>
+		<option value="@Operation.Sub">Subtraktion</option>
+		<option value="@Operation.Mult">Multiplikation</option>
+		<option value="@Operation.Div">Division</option>
+	</select>
+	<br />
+
+	Zahl 1: <input type="number" asp-route="z1" name="z1"/>
+	<br/>
+
+	Zahl 2: <input type="number" asp-route="z2" name="z2"/>
+	<br />
+
+	<button type="submit">Berechne</button>
+</form>

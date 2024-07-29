@@ -1,0 +1,15 @@
+﻿@page "/User/Login"
+@model M004.Pages.User.LoginModel
+@{
+	ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form method="post">
+	Username: <input type="text" asp-route="user" name="user" />
+	<br />
+	Passwort: <input type="password" asp-route="pw" name="pw" />
+	<br />
+	<button>Login</button>
+</form>

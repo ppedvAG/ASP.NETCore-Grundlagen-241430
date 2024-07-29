@@ -67,7 +67,7 @@ public class UserController : Controller
 
 		_users.Add(newUser);
 		_logger.Log(LogLevel.Information, $"Neuer User angelegt: {email}, {username}");
-		return RedirectToAction("Login");
+		return View("Login");
 		//return StatusCode(200);
 	}
 

@@ -1,0 +1,19 @@
+﻿@page "/User/Register"
+@model M004.Pages.User.RegisterModel
+@{
+	ViewData["Title"] = "Registrieren";
+}
+
+<h1>Registrieren</h1>
+
+<form method="post">
+	Email: <input type="text" asp-route="email" name="email" />
+	<br />
+	Username: <input type="text" asp-route="username" name="username" />
+	<br />
+	Passwort: <input type="password" asp-route="passwort" name="passwort" />
+	<br />
+
+	@*asp-page-handler: Äquivalent zu asp-action, aber in Razor Pages*@
+	<button asp-page-handler="NeuerUser">Registrieren</button>
+</form>
