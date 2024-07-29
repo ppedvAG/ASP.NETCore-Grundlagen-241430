@@ -1,0 +1,10 @@
+﻿@model User
+<h1>Login</h1>
+
+<form asp-action="Einloggen">
+	Username: <input type="text" asp-route="user" name="user"/>
+	<br/>
+	Passwort: <input type="password" asp-route="pw" name="pw"/>
+	<br />
+	<button>Login</button>
+</form>

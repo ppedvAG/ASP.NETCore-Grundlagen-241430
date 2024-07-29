@@ -1,0 +1,19 @@
+﻿@*Hier wird festgelegt, das diese Page vom Controller ein User Objekt empfängt*@
+@*dynamic -> User*@
+@model User
+<h1>Registrieren</h1>
+
+@*HTML Form: Behälter mit Input Elementen, über den Submit Button wird der Inhalt weitergegeben (per HTTP Request an den Server)*@
+<form asp-action="NeuerUser">
+	@*
+		asp-route-...: Wert an das Backend schicken
+		asp-route muss den Namen des Backendparameters enthalten
+	*@
+	Email: <input type="text" asp-route="email" name="email"/>
+	<br/>
+	Username: <input type="text" asp-route="username" name="username"/>
+	<br />
+	Passwort: <input type="password" asp-route="passwort" name="passwort"/>
+	<br />
+	<button>Registrieren</button>
+</form>
