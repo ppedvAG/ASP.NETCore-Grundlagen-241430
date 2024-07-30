@@ -1,4 +1,4 @@
 ﻿@page "/User/Erfolg"
 @model M004.Pages.User.ErfolgModel
 
-<h1>Hallo @Model.CurrentUser</h1>
+<h1>Hallo @(((M004.UserModel) TempData["user"]).Username)</h1>

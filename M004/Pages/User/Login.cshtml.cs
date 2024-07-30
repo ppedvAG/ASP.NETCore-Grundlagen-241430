@@ -33,6 +33,8 @@ namespace M004.Pages.User
 
 			_logger.Log(LogLevel.Information, $"User eingeloggt: {user}");
 
+			TempData["user"] = foundUser;
+
 			//Hier anonymes Objekt einsetzen, wobei die Namen hierin mit den Parameternamen des Handlers anderen Seite übereinstimmen müssen
 			return RedirectToPage("/User/Erfolg", new { user = foundUser.Username });
 		}
