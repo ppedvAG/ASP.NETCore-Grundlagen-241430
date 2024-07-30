@@ -1,0 +1,47 @@
+﻿@using System.Reflection
+@*
+	ShowAnyData: Stellt beliebige Objekte in einer Tabellenform dar
+	Verwendet Reflection um herauszufinden, welche Spalten generiert werden müssen
+
+	Model.GetType() //Holt den IEnumerable Typ
+		 .GetGenericArguments()[0] //Den Typen der Elemente ohne die Elemente selbst anzugreifen (der Typ hinter object)
+		 .GetProperties() //Holt alle Properties aus dem Typen heraus (alle Felder mit { get; set; })
+		 .Select(e => e.Name) //Wandelt das PropertyInfo[] zu einem string[] um
+*@
+@model IEnumerable<object>
+@{
+	Type objType = Model.GetType().GetGenericArguments()[0];
+	IEnumerable<string> columnNames = objType.GetProperties().Select(e => e.Name);
+}
+
+<h1>Alle @objType.Name</h1>
+
+<form asp-action="Filter" method="post">
+	Spalte: 
+	<select>
+		@foreach (string col in columnNames)
+		{
+			<option value="@col" asp-route="col">@col</option>
+		}
+	</select>
+	Filter: <input type="text" asp-route="expr"/>
+	<button type="submit">Filtern</button>
+</form>
+
+<table>
+	<tr>
+		@foreach (string name in objType.GetProperties().Select(e => e.Name))
+		{
+			<th>@name</th>
+		}
+	</tr>
+	@foreach (object o in Model) //Gehe alle Datensätze durch
+	{
+		<tr>
+			@foreach (PropertyInfo prop in o.GetType().GetProperties())
+			{
+				<td>@prop.GetValue(o)</td>
+			}
+		</tr>
+	}
+</table>

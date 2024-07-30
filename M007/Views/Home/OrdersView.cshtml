@@ -1,0 +1,26 @@
+﻿@using M006_Data
+@model IEnumerable<Order>
+
+<h1>Alle Bestellungen</h1>
+
+<table>
+	<tr>
+		<th>Order ID</th>
+		<th>Customer ID</th>
+		<th>Frachtkosten</th>
+	</tr>
+	@foreach (Order o in Model)
+	{
+		<tr>
+			<td>@o.OrderId</td>
+			<td>@o.CustomerId</td>
+			<td>@o.Freight</td>
+			<td>
+				<a asp-action="ProdukteAnzeigen" asp-route-id="@o.OrderId">
+					<button>Produkte Anzeigen</button>
+				</a>
+			</td>
+		</tr>
+		@*Aufgabenstellung: Produkte hinter einer Bestellung anzeigen*@
+	}
+</table>
