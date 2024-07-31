@@ -3,7 +3,6 @@ using M007.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.InteropServices.ObjectiveC;
 
 namespace M007.Controllers;
 
@@ -42,7 +41,7 @@ public class HomeController : Controller
 				_db.Products, //Zweite Tabelle für den Join angeben
 				od => od.ProductId, //Key von Tabelle 1
 				p => p.ProductId, //Key von Tabelle 2
-				(od, p) => new object[] { od.ProductId, p.ProductName, od.UnitPrice, od.Quantity, od.UnitPrice * od.Quantity } //Die Form des Ergebnisses
+				(od, p) => new Rechnungsposten() { ProductId = od.ProductId, ProductName = p.ProductName, UnitPrice = od.UnitPrice, Quantity = od.Quantity, Price = od.UnitPrice * od.Quantity } //Die Form des Ergebnisses
 			);
 		return View("ShowAnyData", x);
 	}

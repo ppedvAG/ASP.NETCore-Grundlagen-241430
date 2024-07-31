@@ -1,0 +1,48 @@
+﻿@model Customer
+
+<h1>Kunde @Model.CustomerId bearbeiten</h1>
+
+<form method="post" asp-action="KundeSpeichern">
+	<div>
+		@*ModelBinding mittels asp-for*@
+		CustomerID: <input type=text asp-for="@Model.CustomerId"/>
+		@*Diese span sorgt für die Validation*@
+		<span asp-validation-for="@Model.CustomerId"/>
+		@*Über die DataAnnotations können die Fehlerbedingungen und die Fehlermeldungen gesetzt werden*@
+	</div>
+
+	<div>
+		Firmenname: <input type=text asp-for="@Model.CompanyName" />
+		<span asp-validation-for="@Model.CompanyName" />
+	</div>
+
+
+	<div>
+		Ansprechpartner: <input type=text asp-for="@Model.ContactName" />
+		<span asp-validation-for="@Model.ContactName" />
+	</div>
+
+	<div>
+		Land: <input type=text asp-for="@Model.Country" />
+		<span asp-validation-for="@Model.Country" />
+	</div>
+
+	@*Gibt eine Zusammenfassung von allen Fehlern zurück*@
+	<div asp-validation-summary="ModelOnly"/>
+	<button>Speichern</button>
+</form>
+
+@*
+	Sections: Teil der Page, welche in einer übergeordneten Page gerendert werden kann
+	Hier wird dieser Teil Code im Layout eingebunden mittels:
+	@await RenderSectionAsync("Scripts", required: false)
+
+	Render...: Bindet Html Code in eine andere Page ein
+*@
+ 
+@section Scripts {
+	@{
+		//await: Warte darauf, das dieses Skript fertig geladen/ausgeführt ist
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

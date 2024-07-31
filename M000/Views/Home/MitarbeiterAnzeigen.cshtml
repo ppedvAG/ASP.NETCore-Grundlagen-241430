@@ -1,0 +1,30 @@
+﻿@model Employee
+
+<h1>Mitarbeiter @Model.EmployeeId</h1>
+
+<table>
+	<tr>
+		<th>
+			Ansprechform
+		</th>
+		<td>
+			@Model.TitleOfCourtesy
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Vorname
+		</th>
+		<td>
+			@Model.FirstName
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Nachname
+		</th>
+		<td>
+			@Model.LastName
+		</td>
+	</tr>
+</table>

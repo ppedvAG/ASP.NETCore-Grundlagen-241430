@@ -1,0 +1,24 @@
+﻿@using M000.Models
+@model IEnumerable<Rechnungsposten>
+
+<h1>Produkte von Bestellung</h1>
+
+<table>
+	<tr>
+		<th>Produkt ID</th>
+		<th>Produktname</th>
+		<th>Preis pro Stück</th>
+		<th>Menge</th>
+		<th>Rechnungssumme</th>
+	</tr>
+	@foreach (Rechnungsposten r in Model)
+	{
+		<tr>
+			<td>@r.ProductId</td>
+			<td>@r.ProductName</td>
+			<td>@r.UnitPrice</td>
+			<td>@r.Quantity</td>
+			<td>@r.Price</td>
+		</tr>
+	}
+</table>

@@ -7,6 +7,7 @@
 		<th>Customer ID</th>
 		<th>Firmenname</th>
 		<th>Ansprechperson</th>
+		<th>Land</th>
 	</tr>
 	@foreach (Customer c in Model)
 	{
@@ -14,6 +15,12 @@
 			<td>@c.CustomerId</td>
 			<td>@c.CompanyName</td>
 			<td>@c.ContactName</td>
+			<td>@c.Country</td>
+			<td>
+				<a asp-action="KundeBearbeiten" asp-route-id="@c.CustomerId">
+					<button>Kunde bearbeiten</button>
+				</a>
+			</td>
 		</tr>
 	}
 </table>

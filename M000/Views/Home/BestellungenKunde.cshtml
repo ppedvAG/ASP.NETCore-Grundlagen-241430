@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Order>
+
+<table>
+	<tr>
+		<th>Bestellnummer</th>
+		<th>Kunden ID</th>
+		<th>Frachtkosten</th>
+	</tr>
+	@foreach (Order o in Model)
+	{
+		<tr>
+			<td>@o.OrderId</td>
+			<td>@o.CustomerId</td>
+			<td>@o.Freight</td>
+			<td>
+				<a asp-action="DetailsAnzeigen" asp-route-id="@o.OrderId">
+					<button>Details anzeigen</button>
+				</a>
+			</td>
+			<td>
+				<a asp-action="MitarbeiterAnzeigen" asp-route-id="@o.EmployeeId">
+					<button>Mitarbeiter anzeigen</button>
+				</a>
+			</td>
+		</tr>
+	}
+</table>
